@@ -23,7 +23,13 @@ class App extends React.Component{
     };
     this.getWeather();
     this.weatherIcon = {
-      Thunderstorm: "wi-thunderstorm"
+      Thunderstorm: "wi-thunderstorm",
+      Drizzle: "wi-sleet",
+      Rain: "wi-storm-showers",
+      Snow: "wi-snow",
+      Atmosphere: "wi-fog",
+      Clear: "wi-day-dunny",
+      Clouds: "wi-day-fog"
     };
   }
 
@@ -32,8 +38,39 @@ class App extends React.Component{
     return cell;
   }
 
+get_WeatherIcon(icons, rangeId){
+  switch(true){
+    case rangeId >= 200 && rangeId <= 232:
+      this.setState({icon:this.weatherIcon.Thunderstorm})
+      break;
+    case rangeId >= 300 && rangeId <= 321:
+      this.setState({icon:this.weatherIcon.Drizzle})
+      break;
+    case rangeId >= 500 && rangeId <= 531:
+      this.setState({icon:this.weatherIcon.Rain})
+      break;
+    case rangeId >= 600 && rangeId <= 622:
+      this.setState({icon:this.weatherIcon.Snow})
+      break;
+     case rangeId >= 700 && rangeId <= 781:
+      this.setState({icon:this.weatherIcon.Atmosphere})
+      break;
+    case rangeId === 800:
+      this.setState({icon:this.weatherIcon.Clear})
+      break;
+    case rangeId >= 801 && rangeId <= 804:
+      this.setState({icon:this.weatherIcon.Clouds})
+      break;   
+    case rangeId >= 805:
+      this.setState("?")
+      break;
+      default:
+        this.setState({icon:this.weatherIcon.Clouds})
+  }
+}
+
 getWeather = async () =>{
-  const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Campinas&appid=${API_KEY}`
+  const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=${API_KEY}`
   );
 
   const response = await api_call.json();
@@ -46,9 +83,9 @@ getWeather = async () =>{
     temp_max: this.calCelsius(response.main.temp_max),
     temp_min: this.calCelsius(response.main.temp_min),
     description: response.weather[0].description,
-    icon: this.weatherIcon.Thunderstorm
-  })
-}
+  });
+  this.get_WeatherIcon(this.weatherIcon, response.weather[0].id)
+};
 
   render(){
     return(
