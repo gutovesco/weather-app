@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'weather-icons/css/weather-icons.css'
+import Form from './app_component/form.component'
 import Weather from './app_component/weather.component'
 
 //api.openweathermap.org/data/2.5/weather?q=London,uk
