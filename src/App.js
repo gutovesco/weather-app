@@ -91,6 +91,7 @@ getWeather = async () =>{
   render(){
     return(
       <div className="App">
+      <Form />
       <Weather 
       city={this.state.city} 
       country={this.state.country} 
