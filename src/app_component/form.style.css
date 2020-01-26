@@ -8,7 +8,7 @@ form{
 form input[name="city"],
 form input[name="country"]{
     background: transparent;
-    color: white;
+    color: #333;
     outline: none;
     border: 0;
     border-bottom: 2px solid whitesmoke;
@@ -16,9 +16,10 @@ form input[name="country"]{
     font-family: 'Fjalla One', sans-serif;
 }
 form input:focus{
-    background-color: transparent;
+    background-color: transparent !important;
     box-shadow: none !important;
     outline: none !important;
+
 }
 .btn-warning{
     height: 37px;
