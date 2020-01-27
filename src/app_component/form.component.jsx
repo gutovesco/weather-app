@@ -8,13 +8,13 @@ const Form = props =>{
             <form onSubmit={props.loadweather}>
             <div className="row">
                 <div className="col-md3 offset-md-2">
-                    <input type="text" className="form-control" name="city" autoComplete="off" placeholder="city"/>
+                    <input type="text" className="form-control" name="city" autoComplete="off" placeholder="cidade"/>
                 </div>
                 <div className="col-md3">
-                    <input type="text" className="form-control" name="country" autoComplete="off" placeholder="country"/>
+                    <input type="text" className="form-control" name="country" autoComplete="off" placeholder="país"/>
                 </div>
-                <div className="col-md3 mt-md-0 text-md-left">
-                    <button className="btn-warning">Get weather</button>
+                <div className="col-md3 mt-md-0 py-2 text-md-left">
+                    <button className="btn-warning">Buscar</button>
                 </div>
             </div>
             </form>

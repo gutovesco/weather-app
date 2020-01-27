@@ -22,6 +22,8 @@ form input:focus{
 
 }
 .btn-warning{
-    height: 37px;
+    height: 32px;
+    width: 100px;
     border-radius: 5px;
+    font-size: 15px;
 }
